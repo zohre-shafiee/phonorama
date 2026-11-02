@@ -108,7 +108,7 @@ My involvement included developing parts of the web application with **JavaScrip
 
 ## Related project material
 
-The previous README linked to supplementary university project files:
+Supplementary university project files:
 https://cloud.univ-grenoble-alpes.fr/s/jozpNr3zajXECtx?dir=/&editing=false&openfile=true
 
 Access and availability depend on the original university share settings.
