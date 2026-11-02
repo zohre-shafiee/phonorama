@@ -1,90 +1,167 @@
-:root {
-    --couleur-fond: #F5EFE9;
-    --fond-tableaux:#0e0e0ec6;
-    --bordures:rgba(225, 225, 225, 0.085);
-    --commun: #2ecc71;
-    --fr: #3498db;
-    --autre: #e67e22;
-}
-
 /* ********** STYLE GLOBAL DES TABLEAUX ********** */
-   
-table {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 0.5em auto;
-    border: 2px solid #bab5b0d0;
-    border-collapse: collapse; 
-    width: 90%;
-    text-align: center;
-    background-color: var(--fond-tableaux);
-    color:var(--couleur-fond);
+
+.tableau-scroll {
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #e3dbd0;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(60, 40, 20, 0.05);
 }
 
-/* Lignes */
-tr {
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    color: #2b2622;
     font-size: 13px;
+    line-height: 1.4;
 }
 
 /* Cellules */
 td, th {
-    padding: 1px 2px;
-    border-top: thin solid var(--bordures);
-    border-left: thin solid var(--bordures);
+    padding: 4px 3px;
+    border: 1px solid #ece5db;
+    vertical-align: middle;
 }
 
-td[scope="col"], 
-td[scope="row"] {
-    border: 1px solid var(--bordures);
+/* En-têtes de colonnes */
+th,
+td[scope="col"] {
+    background-color: #f5efe7;
+    color: #5c524a;
+    font-weight: 600;
+    font-size: 12px;
 }
 
-tr:nth-child(2) td {
-    border-top: thin solid var(--bordures);
-    border-right: none;
+/* Première ligne d'en-tête (titres) */
+#consonnes tr:first-child th {
+    font-size: 13px;
+    color: #2b2622;
+    letter-spacing: 0.3px;
 }
 
-/* ********** STYLES SPECIFIQUES ********** */
-
-/* Alignement en bas pour les lignes d'en-tête spécifiques (Modes et Pulmoniques) */
-tr:nth-child(1), 
-tr:nth-child(3), 
-tr:nth-last-child(2) {
-    vertical-align: bottom;
+/* En-têtes de lignes (modes d'articulation, ouverture) */
+td[scope="row"],
+td.label-ouverture {
+    background-color: #faf6f1;
+    color: #3d3530;
+    font-weight: 600;
+    font-size: 12.5px;
+    text-align: right;
+    padding: 4px 10px;
+    white-space: nowrap;
 }
 
-/* Pour les articulations impossibles dans le tableau des consonnes*/
+/* Lignes de section (Pulmoniques / Non pulmoniques) */
+td[scope="col"] u {
+    text-decoration: none;
+    color: #8a5a2b;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+}
+
+/* Cellules qui contiennent des phonèmes : un peu plus d'air */
+td[data-point],
+td[data-post_ant],
+td[data-diphtongue] {
+    min-width: 30px;
+    height: 34px;
+}
+
+/* Survol d'une ligne pour faciliter la lecture */
+#consonnes tbody tr:hover td:not(.impossible):not([scope]),
+#voyelles tbody tr:hover td:not(.label-ouverture) {
+    background-color: #fcf8f3;
+}
+
+/* Articulations impossibles : hachures, comme dans le tableau officiel de l'API */
 .impossible {
-    background-color: var(--couleur-fond);
+    background: repeating-linear-gradient(45deg, #ece5db 0 3px, #f8f4ee 3px 7px);
 }
 
+/* ********** TABLEAUX DES VOYELLES, DIPHTONGUES ET TONS ********** */
 
-/* Flexbox englobant le tableau des voyelles, des diphtongues et des tons */
 div.voyelle-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding:30px;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 0;
 }
 
-.voyelles {
-    width: 40%;
-    font-size: 25px;
+div.voyelle-container > table {
+    width: auto;
+    background: #ffffff;
+    border: 1px solid #e3dbd0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(60, 40, 20, 0.05);
+}
+
+#voyelles {
+    flex: 3 1 560px;
+}
+
+#voyelles td[data-post_ant] {
+    min-width: 46px;
 }
 
 .diphtongue {
-    width: 8%;
-    margin-left: 30px;
+    flex: 0 1 150px;
 }
 
-.ton {
-    width:auto;
+.diphtongue td[data-diphtongue] {
+    vertical-align: top;
+    padding: 8px;
+    min-height: 120px;
 }
 
-.module,.niveau {
-    width:30%;
-    margin-left: 30px;
+.niveau,
+.module {
+    flex: 1 1 240px;
 }
 
+/* Note sous le tableau des consonnes */
+.caption {
+    font-size: 13px;
+    color: #6f655c;
+    margin-top: 10px;
+}
 
+/* Tableau des consonnes : phonèmes un peu plus compacts pour que les 34 colonnes tiennent à l'écran */
+#consonnes td,
+#consonnes th {
+    padding: 3px 1px;
+}
 
+#consonnes td[data-point] {
+    min-width: 0;
+    height: 32px;
+}
 
+#consonnes .phoneme-cell {
+    font-size: 15px;
+    min-width: 1.2em;
+    padding: 0 4px;
+    margin: 1px;
+}
+
+#consonnes td[scope="row"] {
+    padding: 3px 8px;
+}
+
+/* Tons : aucune des langues de la base n'est tonale, les tableaux restent vides.
+   Supprimer ces lignes pour les réafficher. */
+.ton,
+.niveau,
+.module {
+    display: none;
+}
+
+/* Petits écrans : les tableaux défilent horizontalement au lieu de déborder de la page */
+@media (max-width: 700px) {
+    div.voyelle-container { overflow-x: auto; flex-wrap: nowrap; }
+    #voyelles { flex: 0 0 auto; }
+}

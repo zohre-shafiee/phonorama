@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (zoneResultats) zoneResultats.style.display = "none";
 
             // Nettoyage préventif des cellules
-            document.querySelectorAll('td[data-point], td[data-post_ant], td[data-level]').forEach(td => {
+            document.querySelectorAll('td[data-point], td[data-post_ant], td[data-level], td[data-diphtongue]').forEach(td => {
                 td.innerHTML = "";
             });
             
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function remplirTableaux(data) {
     // Nettoyage avant affichage
-    document.querySelectorAll('td[data-point], td[data-post_ant], td[data-level]').forEach(td => {
+    document.querySelectorAll('td[data-point], td[data-post_ant], td[data-level], td[data-diphtongue]').forEach(td => {
         td.innerHTML = "";
     });
 
@@ -73,7 +73,11 @@ function remplirTableaux(data) {
         data[groupe].forEach(p => {
             let selector = "";
 
-            if (p.mode && p.point && p.voix) {
+            // Les diphtongues vont dans leur propre tableau (avant le test des voyelles)
+            if (p.is_diphtongue) {
+                selector = `#diphtongues td[data-diphtongue]`;
+            }
+            else if (p.mode && p.point && p.voix) {
                 selector = `#consonnes tr[data-mode="${p.mode}"] td[data-point="${p.point}"][data-voix="${p.voix}"]`;
             } 
             else if (p.ferm_ouv && p.post_ant) {
@@ -124,4 +128,4 @@ function chargerDescription(id) {
                 descElem.textContent = data.description_text || "Pas de description disponible.";
             }
         });
-}
+}

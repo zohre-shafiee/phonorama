@@ -7,8 +7,12 @@ try {
     $conn = panneaux_db();
     
     // Récupération langue sélectionnée 
-    $sql = "SELECT id_langue, nom_langue 
-            FROM languages"; 
+    // Seulement les langues qui ont un inventaire phonologique (sauf le français, langue de référence)
+    $sql = "SELECT DISTINCT l.id_langue, l.nom_langue
+            FROM languages l
+            JOIN language_inventory li ON li.id_langue = l.id_langue
+            WHERE l.id_langue <> 40
+            ORDER BY l.nom_langue"; 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $langues = $stmt->fetchAll(PDO::FETCH_ASSOC);

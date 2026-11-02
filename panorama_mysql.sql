@@ -131,7 +131,7 @@ INSERT INTO languages (id_langue, nom_langue, glottocode) VALUES (103, 'Yoruba',
 
 CREATE TABLE ipa_symbols (
     id_ipa INT NOT NULL AUTO_INCREMENT,
-    symbol VARCHAR(50) NOT NULL,
+    symbol VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
     categorie VARCHAR(100) NOT NULL,
     PRIMARY KEY (id_ipa),
     UNIQUE KEY uq_ipa_symbol (symbol)
@@ -300,7 +300,7 @@ INSERT INTO ipa_symbols (id_ipa, symbol, categorie) VALUES (159, 'ʱ', 'diacriti
 
 CREATE TABLE phonemes (
     id_phoneme INT NOT NULL AUTO_INCREMENT,
-    phoneme_label VARCHAR(255) NOT NULL,
+    phoneme_label VARCHAR(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
     PRIMARY KEY (id_phoneme),
     UNIQUE KEY uq_phoneme_label (phoneme_label)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

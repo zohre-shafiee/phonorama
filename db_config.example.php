@@ -5,7 +5,7 @@ return [
     'driver' => 'mysql',
     'host' => 'localhost',
     'port' => '3306',
-    'name' => 'YOUR_DATABASE_NAME',
+    'name' => 'panorama',
     'user' => 'YOUR_DATABASE_USER',
     'password' => 'YOUR_DATABASE_PASSWORD',
 ];

@@ -1,11 +1,23 @@
-
+/* ********** PALETTE ********** */
 :root {
-    --couleur-fond: #F5EFE9;
-    --commun: #2ecc71;
-    --fr: #3498db;
-    --autre: #e67e22;
-}
+    --fond: #f6f1ea;
+    --surface: #ffffff;
+    --texte: #2b2622;
+    --texte-doux: #6f655c;
+    --bordure: #e3dbd0;
+    --accent: #8a5a2b;
 
+    --commun: #2e9e6b;
+    --commun-fond: #e3f4ec;
+    --fr: #2f6fd0;
+    --fr-fond: #e5eefc;
+    --autre: #d9731c;
+    --autre-fond: #fdeedd;
+
+    --police: "Noto Sans", "Segoe UI", system-ui, sans-serif;
+    --police-titre: "Fraunces", Georgia, serif;
+    --police-api: "Noto Sans", "Charis SIL", "Doulos SIL", "Lucida Sans Unicode", sans-serif;
+}
 
 /* ********** STYLES DE BASE ********** */
 html {
@@ -14,142 +26,228 @@ html {
 }
 
 body {
-    background-color: var(--couleur-fond);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--fond);
+    color: var(--texte);
+    font-family: var(--police);
+    font-size: 16px;
+    line-height: 1.5;
     height: 100%;
     margin: 0;
 }
-
-h1 {
-    font-family: Bahnschrift;
-    font-size: 35px;
-    letter-spacing: 3px;
-    text-align: center;
-    line-height: 27.5px;
-    background-color: var(--couleur-fond);
-    border-bottom: solid 1px grey;
-    padding: 20px;
-    margin: 0%;
-}
-
-h2 {
-    font-family: Bahnschrift;
-    font-size: 25px;
-    font-weight: 350;
-    letter-spacing: -1px;
-    margin-left: 30px;
-    margin-top: 40px;
-}
-
-h3 {
-    font-family: Bahnschrift;
-    font-size: 20px;
-    font-weight: 350;
-    letter-spacing: -1px;
-    margin-left: 30px;
-    margin-top: 40px;
-}
-
-p {
-    margin-left: 30px;
-    font-weight: 400;
-}
-
-label {
-    font-size: 18px;
-}
-
-
 
 /* ********** STRUCTURE DE LA PAGE ********** */
 .site-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 .content-wrapper {
-    flex: 1 0 auto; 
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    box-sizing: border-box;
 }
 
+/* ********** EN-TÊTE ********** */
+.site-header {
+    text-align: center;
+    padding: 40px 16px 24px;
+}
 
+h1 {
+    font-family: var(--police-titre);
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--texte);
+    margin: 0;
+}
+
+.sous-titre {
+    margin: 8px 0 0;
+    color: var(--texte-doux);
+    font-size: 16px;
+}
+
+h2 {
+    font-family: var(--police-titre);
+    font-size: 26px;
+    font-weight: 600;
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--bordure);
+}
+
+p {
+    margin: 0 0 12px;
+}
+
+a {
+    color: var(--accent);
+}
 
 /* ********** FORMULAIRE ET BOUTONS ********** */
+.selection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--bordure);
+    border-radius: 14px;
+    padding: 18px 24px;
+    max-width: 760px;
+    margin: 0 auto 8px;
+    box-shadow: 0 2px 10px rgba(60, 40, 20, 0.05);
+}
 
-/* Menu déroulant */
+label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
 #langue-select {
-    margin-top: 30px;
-    font-family: Segoe UI;
+    font-family: var(--police);
     font-size: 15px;
+    padding: 9px 12px;
+    min-width: 240px;
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--texte);
+    cursor: pointer;
+}
+
+#langue-select:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
 }
 
 .button {
-    font-family: Segoe UI;
+    font-family: var(--police);
     font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    transition: background 0.15s, color 0.15s;
+}
+
+.button:hover {
+    background: #6f4620;
+}
+
+#btn-reset {
+    background: transparent;
+    color: var(--accent);
+}
+
+#btn-reset:hover {
+    background: #f3e9de;
+}
+
+/* ********** LÉGENDE ********** */
+.legende {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 24px;
+    background: var(--surface);
+    border: 1px solid var(--bordure);
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin: 32px 0 0;
+    font-size: 14px;
+    color: var(--texte-doux);
+}
+
+.legende-titre {
+    font-weight: 600;
+    color: var(--texte);
+}
+
+.legende-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.case-impossible {
+    display: inline-block;
+    width: 22px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--bordure);
+    background: repeating-linear-gradient(45deg, #ece5db 0 3px, #f8f4ee 3px 7px);
+}
+
+/* ********** PHONÈMES ********** */
+.phoneme-cell {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 1px 6px;
+    margin: 2px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-family: var(--police-api);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.present-commun {
+    background: var(--commun-fond);
+    color: var(--commun);
+    border-color: #b6e2cc;
+}
+
+.present-fr {
+    background: var(--fr-fond);
+    color: var(--fr);
+    border-color: #bed2f5;
+}
+
+.present-autre {
+    background: var(--autre-fond);
+    color: var(--autre);
+    border-color: #f5cfa6;
 }
 
 /* ********** ZONE DE DESCRIPTION ********** */
 #description-phonologique {
-    margin: 20px 30px;
-    padding: 15px;
-    background-color: #fdfaf5;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    line-height: 1.6;
+    background-color: var(--surface);
+    border: 1px solid var(--bordure);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 20px 24px;
+    line-height: 1.7;
     white-space: pre-line;
-    font-style: italic;
     min-height: 50px;
-}
-
-/* ********** STYLE DES PHONEMES ********** */
-.phoneme-cell {
-    display: inline-block;
-    position: relative;
-    padding: 2px 12px 2px 4px;
-    margin: 2px;
-    font-weight: bold;
-    font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif;
-    font-size: 1.1em;
-    color: white !important;
-    background-color: transparent !important;
-}
-
-/* Pastilles de couleur */
-.phoneme-cell::after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: gray;
-}
-
-.present-commun::after {
-    background-color: var(--commun) !important;
-}
-
-.present-fr::after {
-    background-color: var(--fr) !important;
-}
-
-.present-autre::after {
-    background-color: var(--autre) !important;
+    font-size: 16px;
 }
 
 /* ********** PIED DE PAGE ********** */
 footer {
     flex-shrink: 0;
-    border-top: 2px solid rgba(163, 122, 19, 0.749);
-    background-color: rgba(214, 211, 199, 0.756);
+    border-top: 1px solid var(--bordure);
+    background-color: #efe8de;
+    color: var(--texte-doux);
     text-align: center;
-    padding: 15px;
+    padding: 18px;
     font-size: 14px;
-    margin-top: 60px;
 }
 
-
-
+/* ********** PETITS ÉCRANS ********** */
+@media (max-width: 700px) {
+    .content-wrapper { padding: 0 12px 32px; }
+    h1 { font-size: 34px; }
+    #langue-select { min-width: 0; width: 100%; }
+}

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+	<head>
+		<title>PanneauxRama</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
+		<link rel="stylesheet" type="text/css" href="style_tableau.css?v=2" />
+		<link rel="stylesheet" type="text/css" href="style.css?v=2" />
+	</head>
 	<body class="site-container">
-		<head>
-			<title>PanneauxRama</title>
-			<meta charset="UTF-8">
-			<link rel="stylesheet" type="text/css" href="style_tableau.css" />
-			<link rel="stylesheet" type="text/css" href="style.css" />
-		</head>
 
 		<main class="content-wrapper">
-			<header>
+			<header class="site-header">
 				<h1>PanneauxRama</h1>
+				<p class="sous-titre">Comparer l'inventaire phonologique du français avec celui d'une autre langue</p>
 			</header>
 
-			<p>
+			<p class="selection">
 				<label for="langue-select">Choisissez une langue :</label>
 
 				<select id="langue-select">
@@ -26,14 +30,16 @@
 			</p>
 
 			<div id="zone-resultats" style="display: none;">
-				<h3>Légende</h3>
-				<p>	
-					Les points de couleur bleue indiquent que le son n'existe qu'en français <br>
-					Les points de couleur orange indiquent que le son n'existe que dans la langue sélectionnée<br>
-					Les points de couleur verte indiquent que le phonème est commun <br>
-				</p>
+				<div class="legende">
+					<span class="legende-titre">Légende</span>
+					<span class="legende-item"><span class="phoneme-cell present-commun">a</span> commun aux deux langues</span>
+					<span class="legende-item"><span class="phoneme-cell present-fr">a</span> uniquement en français</span>
+					<span class="legende-item"><span class="phoneme-cell present-autre">a</span> uniquement dans la langue sélectionnée</span>
+					<span class="legende-item"><span class="case-impossible"></span> articulation impossible</span>
+				</div>
 
 					<h2>Consonnes</h2>
+					<div class="tableau-scroll">
 					<table border="0" cellspacing="0" class="consonne" id="consonnes">
 						<tbody>
 							<tr>
@@ -319,8 +325,8 @@
 								<td data-mode="spirante" data-point="labio-pal" data-voix="voisée"></td>
 								<td>&nbsp;</td>
 								<td data-mode="spirante" data-point="vélaire" data-voix="voisée"></td>
-								<td data-mode="spirante" data-point="labio-pal" data-voix="sourde"></td>
-								<td data-mode="spirante" data-point="labio-pal" data-voix="voisée"></td>
+								<td data-mode="spirante" data-point="labio-vel" data-voix="sourde"></td>
+								<td data-mode="spirante" data-point="labio-vel" data-voix="voisée"></td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
@@ -698,10 +704,11 @@
 							</tr>
 						</tbody>				
 					</table>
+					</div>
 
 					<p class="caption">
 						Source : <a href="https://fr.wikipedia.org/wiki/Alphabet_phon%C3%A9tique_international#Consonnes">Wikipedia</a> <br>
-						Les cellules laissées blanches indiquent une articulation jugée impossible. <br>
+						Les cases hachurées indiquent une articulation jugée impossible. <br>
 						Les cases marquées d'un astérisque indiquent des sons attestés encore non représentés officiellement dans l'API.<br>
 					</p> 
 
@@ -819,12 +826,9 @@
 								</tr>
 							</tbody>
 						</table>
-						<table class="diphtongue">
+						<table class="diphtongue" id="diphtongues">
 							<tr><th>Diphtongues</th></tr>
-							<tr><td>&nbsp;</td></tr>
-							<tr><td>&nbsp;</td></tr>
-							<tr><td>&nbsp;</td></tr>
-							<tr><td>&nbsp;</td></tr>
+							<tr><td data-diphtongue="liste"></td></tr>
 						</table>
 
 						<table class="ton">
@@ -909,16 +913,14 @@
 						<!-- Ici, informations des pdfs -->
 						
 
-						<div id="description-phonologique">
-							Aucune description chargée.
-						</div>
+						<div id="description-phonologique">Aucune description chargée.</div>
 			</div>
 
 		</main>
 
 		<footer>Camille BENOIT-GUYOD, Catherine KOVACH, Ekaterina LEONOVA, Yoan GOUDIN, Zohre SHAFIEE</footer>
 		
-		<script src="script.js?v=1000"></script>
+		<script src="script.js?v=1003"></script>
 
 	</body>
-</html>
+</html>
