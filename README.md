@@ -1,13 +1,13 @@
 # Phonorama — A web-based phonological comparison tool
 
-**Project Management coursework · Collaboration with Aster Formation · French as a Foreign Language (FLE) · Phonology · Web development**
+**Project Management coursework · Collaboration with [Aster Formation](https://aster-formation.com/) · French as a Foreign Language (FLE) · Phonology · Web development**
 
 🔗 **Live demo:** [i3l.univ-grenoble-alpes.fr/~l3_gr16/PWTAL/projet-pannorama/phonorama-main/phonorama.html](http://i3l.univ-grenoble-alpes.fr/~l3_gr16/PWTAL/projet-pannorama/phonorama-main/phonorama.html)
 (hosted on the Université Grenoble Alpes i3l server)
 
 ## Overview
 
-Developed as part of a **Project Management course at Université Grenoble Alpes**, in collaboration with **Aster Formation**, Phonorama is a web application designed to help teachers of French as a foreign language explore differences between **French phonological inventories** and those of other languages. The goal is to make linguistic information easier to consult when preparing pronunciation-focused teaching activities.
+Developed as part of a **Project Management course at Université Grenoble Alpes**, in collaboration with **[Aster Formation](https://aster-formation.com/)**, Phonorama is a web application designed to help teachers of French as a foreign language explore differences between **French phonological inventories** and those of other languages. The goal is to make linguistic information easier to consult when preparing pronunciation-focused teaching activities.
 
 Instead of displaying an unstructured list of sounds, the interface places phonemes into **consonant and vowel charts** and uses visual distinctions to identify sounds shared by French and the selected language.
 
@@ -122,7 +122,7 @@ The bundled database and environment may require local setup or adjustments. Thi
 
 ## Teamwork and contribution
 
-Phonorama was developed by **Yoann Goudin, Ekaterina Leonova, Catherine Kovach, Camille Benoit-Guyod, and Zohré Shafiee** as a **five-person team** within the **Project Management course at Université Grenoble Alpes**, in collaboration with **Aster Formation**. It was a collaborative academic project carried out for an external partner, not a solo project.
+Phonorama was developed by **Yoann Goudin, Ekaterina Leonova, Catherine Kovach, Camille Benoit-Guyod, and Zohré Shafiee** as a **five-person team** within the **Project Management course at Université Grenoble Alpes**, in collaboration with **[Aster Formation](https://aster-formation.com/)**. It was a collaborative academic project carried out for an external partner, not a solo project.
 
 My involvement included developing parts of the web application with **JavaScript and PHP** and working with **SQLite**. After the course, I migrated the database to **MySQL**, deployed the application on the university server, fixed the placement of affricates, diphthongs and lateral consonants in the charts, and redesigned the interface. The codebase represents collaborative work, and I do not claim exclusive authorship of all components.
 
